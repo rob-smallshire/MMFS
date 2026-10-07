@@ -57,14 +57,15 @@ do
     # M is MemoryMapped IO based (typically &FE18, for BeebEm)
     # P is Beeb Printer Port connected Interface (experimental)
     # C is Master Compact Expansion Port (experimental)
+    # S is SPItFIRE adapter on the Master Compact Mouse/Joystick port
     # G is Mega Games Cartridge MKII
     # 1 is Pi1MHz
 
     if [ $system == "MMFS2" ]
     then
-        DEVICES="U U2 U3 T T2 T3 E M P C 1"
+        DEVICES="U U2 U3 T T2 T3 E M P C S 1"
     else
-        DEVICES="U U2 U3 T T2 T3 E M P C G 1"
+        DEVICES="U U2 U3 T T2 T3 E M P C S G 1"
     fi
 
     for device in $DEVICES

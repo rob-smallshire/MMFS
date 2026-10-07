@@ -7983,6 +7983,9 @@ ELIF _DEVICE_="P"
 ELIF _DEVICE_="C"
    _VIA_BASE=?&FE60
 	INCLUDE "MMC_Compact.asm"
+ELIF _DEVICE_="S"
+   _VIA_BASE=?&FE60
+	INCLUDE "MMC_Spitfire.asm"
 ELIF _DEVICE_="G"
     IF _USE_MGC_SHIFTREG
         INCLUDE "MMC_MGCII_ShiftReg.asm"
