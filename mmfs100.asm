@@ -231,8 +231,12 @@ ENDIF
 	RTS
 
 	\ Reset LEDs
+	\ Called at the end of every card operation, and when reporting errors
 .ResetLEDS
 	JSR RememberAXY
+IF _DEVICE_="S"
+	JSR MMC_DEVICE_DESELECT	; Release the shared SPI bus
+ENDIF
 	LDA #&76
 	JMP OSBYTE
 

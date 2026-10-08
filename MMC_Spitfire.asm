@@ -12,8 +12,11 @@
 \\   - UP_WriteByte keeps PB2-PB4 constant (the User Port version lets
 \\     the unsent data bits ripple across PB2-PB7).
 \\   - MMC_DEVICE_RESET selects the card only after SCK is high, and
-\\     MMC_DEVICE_DESELECT (called from MMC_END) releases the bus for the
-\\     other devices.
+\\     MMC_DEVICE_DESELECT releases the bus for the other devices. It is
+\\     called from ResetLEDS, which ends every card operation and every
+\\     error report, and from MMC_END. (MMC_END alone is not enough: it
+\\     ends a zero page save, not a card operation, and many reads
+\\     follow MMC_BEGIN2, which has already called it.)
 \\
 \\ Bulk reads use shift register mode 2, exactly as the User Port driver.
 \\ Writes are bit-banged; the TurboMMC mode 6 write path is not usable
