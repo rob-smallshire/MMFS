@@ -32,7 +32,8 @@ ier% =_VIA_BASE + &0E
 
    ddrmask = &1F \\ 0001 1111   PB0-PB4 are outputs
    msbits  = &08 \\ 0000 1000   74HC138 Y2 (A1=1) selects the SD card
-   nosel   = &00 \\ 0000 0000   74HC138 Y0 selects no device
+   nosel   = &1C \\ 0001 1100   74HC138 Y7 selects no device: the Compact
+                 \\              pulls PB2-PB4 high when port B is released
 
 
     \\ **** Send Data Token to card ****
